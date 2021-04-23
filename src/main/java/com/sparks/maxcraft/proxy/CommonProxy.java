@@ -33,6 +33,7 @@ public class CommonProxy {
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().register(new ItemBlock(ModBlocks.money).setRegistryName(ModBlocks.money.getRegistryName()));
         event.getRegistry().register(ModItems.skooma);
+        event.getRegistry().register(new MoneyItem());
     }
     
 }

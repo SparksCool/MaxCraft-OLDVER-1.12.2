@@ -1,6 +1,7 @@
 package sparks.maxcraft;
 import sparks.maxcraft.items.DrugEffect;
 import sparks.maxcraft.items.*;
+import sparks.maxcraft.items.MoneyItem;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.passive.EntityChicken;
@@ -62,6 +63,8 @@ public class ModItems {
     
     @GameRegistry.ObjectHolder("maxcraft:skooma")
     public static DrugPotion skooma = new DrugPotion("skooma",5,0.5f, true);
+    @GameRegistry.ObjectHolder("maxcraft:moneyitem")
+    public static MoneyItem moneyitem;
     
 
     
@@ -69,6 +72,7 @@ public class ModItems {
    @SideOnly(Side.CLIENT)
     public static void initModels() {
         skooma.initModel();
+        moneyitem.initModel();
         skooma.setMaxStackSize(16);
     }
 
