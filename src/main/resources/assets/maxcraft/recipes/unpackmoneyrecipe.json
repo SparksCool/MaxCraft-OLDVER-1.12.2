@@ -1,0 +1,14 @@
+{
+"type": "minecraft:crafting_shapeless",
+"ingredients": [
+  {
+    "item": "maxcraft:money",
+    "data": 0
+  }
+],
+"result": {
+  "item": "maxcraft:moneyitem",
+  "data": 0,
+  "count": 9
+}
+}

@@ -5,6 +5,7 @@ package sparks.maxcraft.proxy;
 import sparks.maxcraft.*;
 import sparks.maxcraft.blocks.*;
 import sparks.maxcraft.items.*;
+import sparks.maxcraft.village.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
@@ -18,6 +19,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession;
 import java.io.File;
 
 @Mod.EventBusSubscriber
@@ -35,5 +37,10 @@ public class CommonProxy {
         event.getRegistry().register(ModItems.skooma);
         event.getRegistry().register(new MoneyItem());
     }
-    
+    @SubscribeEvent
+    public void onVillagerRegistry(RegistryEvent.Register<VillagerProfession> event) {
+        BankerVillager.initBankerVillagePart();
+        event.getRegistry().register(BankerVillager.bankerProfession);
+
+    }
 }

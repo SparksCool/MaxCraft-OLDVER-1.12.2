@@ -10,9 +10,11 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 public class Money extends Block {
     public Money() {
-        super(Material.ROCK);
+        super(Material.SAND);
         setUnlocalizedName(MaxCraft.MODID + ".money");
         setRegistryName("money");        // The unique name (within your mod) that identifies this block
+        setHarvestLevel("pickaxe",0);
+        setHardness(0.7f);
     }
     @SideOnly(Side.CLIENT)
     public void initModel() {
