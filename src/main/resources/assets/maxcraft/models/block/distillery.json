@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube_all",
+    "parent": "block/cube",
     "textures": {
-        "particle": "modtut:blocks/distil",
-        "down": "modtut:blocks/distil1",
-        "up": "modtut:blocks/distil1",
-        "east": "modtut:blocks/distil1",
-        "west": "modtut:blocks/distil1",
-        "north": "modtut:blocks/distil",
-        "south": "modtut:blocks/distil1"
+        "particle": "maxcraft:blocks/distil",
+        "down": "maxcraft:blocks/distil1",
+        "up": "maxcraft:blocks/distil1",
+        "east": "maxcraft:blocks/distil1",
+        "west": "maxcraft:blocks/distil1",
+        "north": "maxcraft:blocks/distil",
+        "south": "maxcraft:blocks/distil1"
     }
 }

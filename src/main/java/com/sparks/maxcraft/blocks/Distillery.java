@@ -1,6 +1,5 @@
 package sparks.maxcraft.blocks;
 import sparks.maxcraft.MaxCraft;
-import sparks.maxcraft.tilentities.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -22,6 +21,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class Distillery extends Block {
+
+    public static final PropertyDirection FACING = PropertyDirection.create("facing");
+
+    
     public Distillery() {
         super(Material.ROCK);
         setUnlocalizedName(MaxCraft.MODID + ".distillery");
@@ -33,6 +36,31 @@ public class Distillery extends Block {
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
-    
+    @Override
+    public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+        world.setBlockState(pos, state.withProperty(FACING, getFacingFromEntity(pos, placer)), 2);
+    }
+
+    public static EnumFacing getFacingFromEntity(BlockPos clickedBlock, EntityLivingBase entity) {
+        return EnumFacing.getFacingFromVector(
+             (float) (entity.posX - clickedBlock.getX()),
+             (float) (entity.posY - clickedBlock.getY()),
+             (float) (entity.posZ - clickedBlock.getZ()));
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+        return getDefaultState().withProperty(FACING, EnumFacing.getFront(meta & 7));
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return state.getValue(FACING).getIndex();
+    }
+
+    @Override
+    protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, FACING);
+    }
 
 }
