@@ -5,7 +5,6 @@ package sparks.maxcraft.proxy;
 import sparks.maxcraft.*;
 import sparks.maxcraft.blocks.*;
 import sparks.maxcraft.items.*;
-import sparks.maxcraft.village.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
@@ -29,18 +28,14 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         event.getRegistry().register(new Money());
+        event.getRegistry().register(new Distillery());
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().register(new ItemBlock(ModBlocks.money).setRegistryName(ModBlocks.money.getRegistryName()));
+        event.getRegistry().register(new ItemBlock(ModBlocks.distillery).setRegistryName(ModBlocks.distillery.getRegistryName()));
         event.getRegistry().register(ModItems.skooma);
         event.getRegistry().register(new MoneyItem());
-    }
-    @SubscribeEvent
-    public void onVillagerRegistry(RegistryEvent.Register<VillagerProfession> event) {
-        BankerVillager.initBankerVillagePart();
-        event.getRegistry().register(BankerVillager.bankerProfession);
-
     }
 }
