@@ -10,11 +10,11 @@ public class ModBlocks {
     @GameRegistry.ObjectHolder("maxcraft:money")
     public static Money money;
     @GameRegistry.ObjectHolder("maxcraft:distilleryblock")
-    public static DistilleryBlock distillery;
+    public static DistilleryBlock distilleryblock;
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {
         money.initModel();
-        distillery.initModel();
+        distilleryblock.initModel();
     }
 }
