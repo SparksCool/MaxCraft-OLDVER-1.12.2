@@ -11,6 +11,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
+import net.minecraft.block.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -27,6 +28,7 @@ public class Distillery extends Block {
     
     public Distillery() {
         super(Material.ROCK);
+        setSoundType(SoundType.METAL);  
         setUnlocalizedName(MaxCraft.MODID + ".distillery");
         setRegistryName("distillery");        // The unique name (within your mod) that identifies this block
         setHarvestLevel("pickaxe",1);
@@ -40,6 +42,8 @@ public class Distillery extends Block {
     public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
         world.setBlockState(pos, state.withProperty(FACING, getFacingFromEntity(pos, placer)), 2);
     }
+
+    
 
     public static EnumFacing getFacingFromEntity(BlockPos clickedBlock, EntityLivingBase entity) {
         return EnumFacing.getFacingFromVector(
@@ -61,6 +65,14 @@ public class Distillery extends Block {
     @Override
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, FACING);
+    }
+
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerin, 
+                                    EnumHand hand, EnumFacing, float hitX, float hitY, float hitZ){
+
+                                        
+
     }
 
 }
