@@ -20,6 +20,8 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.*;
+import net.minecraft.util.*;
 
 public class Distillery extends Block {
 
@@ -68,11 +70,14 @@ public class Distillery extends Block {
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerin, 
-                                    EnumHand hand, EnumFacing, float hitX, float hitY, float hitZ){
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerin, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 
-                                        
+        if(!worldIn.isRemote){
+            playerin.openGui(MaxCraft.instance, 0, worldIn,pos.getX(),pos.getY(),pos.getZ());
+        }
 
+
+        return true;
     }
 
 }
