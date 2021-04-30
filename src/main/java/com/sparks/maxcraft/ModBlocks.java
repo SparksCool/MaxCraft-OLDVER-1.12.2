@@ -1,5 +1,6 @@
 package sparks.maxcraft;
 import sparks.maxcraft.blocks.*;
+import sparks.maxcraft.blocks.distillery.*;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -8,8 +9,8 @@ public class ModBlocks {
 
     @GameRegistry.ObjectHolder("maxcraft:money")
     public static Money money;
-    @GameRegistry.ObjectHolder("maxcraft:distillery")
-    public static Distillery distillery;
+    @GameRegistry.ObjectHolder("maxcraft:distilleryblock")
+    public static DistilleryBlock distillery;
 
     @SideOnly(Side.CLIENT)
     public static void initModels() {

@@ -4,6 +4,7 @@ package sparks.maxcraft.proxy;
 
 import sparks.maxcraft.*;
 import sparks.maxcraft.blocks.*;
+import sparks.maxcraft.blocks.distillery.*;
 import sparks.maxcraft.items.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -28,7 +29,7 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         event.getRegistry().register(new Money());
-        event.getRegistry().register(new Distillery());
+        event.getRegistry().register(new DistilleryBlock());
     }
 
     @SubscribeEvent
