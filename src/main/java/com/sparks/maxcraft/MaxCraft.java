@@ -1,6 +1,7 @@
 package sparks.maxcraft;
 import sparks.maxcraft.blocks.*;
 import sparks.maxcraft.proxy.CommonProxy;
+import sparks.maxcraft.proxy.*;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -8,11 +9,12 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod(modid = MaxCraft.MODID, name = MaxCraft.NAME, version = MaxCraft.VERSION)
 public class MaxCraft
 {
-    public static CommonProxy proxy;
+    public CommonProxy Cproxy;
 
     @Mod.Instance
     public static MaxCraft instance;
@@ -24,18 +26,19 @@ public class MaxCraft
     private static Logger logger;
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event){
+    public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiProxy());
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent e) {
-        proxy.init(e);
+        
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent e) {
-        
+       
     }
 
 }

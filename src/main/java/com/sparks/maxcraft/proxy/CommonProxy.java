@@ -6,6 +6,7 @@ import sparks.maxcraft.*;
 import sparks.maxcraft.blocks.*;
 import sparks.maxcraft.blocks.distillery.*;
 import sparks.maxcraft.items.*;
+import sparks.maxcraft.MaxCraft;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -24,8 +25,14 @@ import java.io.File;
 @Mod.EventBusSubscriber
 public class CommonProxy {
 
+    public void preInit(FMLPreInitializationEvent e) {
+    }
+    
     public void init(FMLInitializationEvent e) {
         NetworkRegistry.INSTANCE.registerGuiHandler(MaxCraft.instance, new GuiProxy());
+    }
+
+    public void postInit(FMLPostInitializationEvent e) {
     }
 
     @SubscribeEvent

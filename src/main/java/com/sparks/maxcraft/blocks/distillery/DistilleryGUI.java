@@ -4,7 +4,7 @@ import sparks.maxcraft.MaxCraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.util.ResourceLocation;
 
-public class DistilleryGUI extends GuiContainer{
+public class DistilleryGUI extends GuiContainer {
     public static final int WIDTH = 180;
     public static final int HEIGHT = 152;
 

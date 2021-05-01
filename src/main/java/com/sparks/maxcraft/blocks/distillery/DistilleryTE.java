@@ -11,7 +11,7 @@ import net.minecraftforge.items.ItemStackHandler;
 
 
 public class DistilleryTE extends TileEntity{
-    public static final int SIZE = 9;
+    public static final int SIZE = 3;
 
     // This item handler will hold our nine inventory slots
     private ItemStackHandler itemStackHandler = new ItemStackHandler(SIZE) {
